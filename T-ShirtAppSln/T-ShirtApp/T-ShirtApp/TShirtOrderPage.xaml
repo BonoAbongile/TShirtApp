@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TShirtApp.TShirtOrderPage"  Title="Place Order">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="20" VerticalOptions="StartAndExpand">
+
+                <Label Text="Name" />
+                <Entry Text="{Binding Name}" />
+
+                <Label Text="Size" />
+                <Entry Text="{Binding Size}" />
+
+                <Label Text="Gender" />
+                <Entry Text="{Binding Gender}" />
+
+                <Label Text="Color" />
+                <Entry Text="{Binding Color}" />
+
+                <Label Text="DateOfOrder" />
+                <Entry Text="{Binding DateOfOrder}" />
+
+                <Label Text="ShippingAddress" />
+                <Entry Text="{Binding ShippingAddress}" />
+
+                <Button x:Name="saveBtn" Text="Save" Clicked="saveBtn_Clicked"/>
+                <Button x:Name="deleteBtn" Text="Delete" Clicked="deleteBtn_Clicked"/>
+                <!-- <Button Text="Cancel"/> -->
+
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>
