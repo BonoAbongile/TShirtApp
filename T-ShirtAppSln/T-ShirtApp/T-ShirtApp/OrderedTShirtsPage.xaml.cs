@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using T_ShirtApp;
@@ -31,13 +33,15 @@ public partial class OrderedTShirtsPage : ContentPage
           
         private async void viewItem_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItem != null)
-            {
-                await Navigation.PushAsync(new TShirtOrderPage
-                {
-                    BindingContext = e.SelectedItem as TShirtItem
-                });
-            }
+             if (e.SelectedItem != null)
+             {
+               await Navigation.PushAsync(new TShirtOrderPage
+             {
+                BindingContext = e.SelectedItem as TShirtItem
+               });
+             }
+
+
 
         }
 
@@ -47,6 +51,32 @@ public partial class OrderedTShirtsPage : ContentPage
                 {
                     BindingContext = new TShirtItem()
                 });
+        }
+
+        private async void apiBtn_Clicked(object sender, EventArgs e)
+        {
+            var client = new HttpClient();
+            var url = "http://10.0.2.2:5001/products";
+
+            var product = new TShirtItem
+            {
+                Name = "xamarin",
+                Color = "Purple"
+        };
+           
+
+            var json = JsonConvert.SerializeObject(product);
+            var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+
+
+            try
+            {
+                var response = await client.PostAsync(url, content);
+            }
+            catch(Exception ex)
+            {
+                await DisplayAlert("Expection", ex.Message, "Ok");
+            }
         }
     }
 }

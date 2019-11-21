@@ -16,7 +16,10 @@ namespace T_ShirtApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new TShirtOrderPage());
+            var navPage = new NavigationPage(new TShirtOrderPage());
+            navPage.BarBackgroundColor = Color.Crimson;
+            navPage.BarTextColor = Color.White;
+            MainPage = navPage;
         }
 
         public static TShirtDatabase Database

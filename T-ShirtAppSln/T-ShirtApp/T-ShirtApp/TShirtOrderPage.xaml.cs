@@ -42,6 +42,7 @@ public partial class TShirtOrderPage : ContentPage
             var tshirtItem = (TShirtItem)BindingContext;
             await App.Database.DeleteItemAsync(tshirtItem);
             await Navigation.PushAsync(new OrderedTShirtsPage());
+
            // await Navigation.PopAsync();
             // await App.Database.SaveItemAsync(tshirtItem);
         }

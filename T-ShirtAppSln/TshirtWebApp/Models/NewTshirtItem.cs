@@ -1,12 +1,12 @@
-﻿using SQLite;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace T_ShirtApp
+namespace TshirtWebApp.Models
 {
-   public class TShirtItem
-    {        [PrimaryKey, AutoIncrement]
+    public class NewTshirtItem
+    {
         public int ID { get; set; }
         public string Name { get; set; }
         public int Size { get; set; }
