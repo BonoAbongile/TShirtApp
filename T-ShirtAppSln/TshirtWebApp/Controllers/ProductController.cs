@@ -47,7 +47,6 @@ namespace ContosoPets.Api.Controllers
                 await _context.SaveChangesAsync();
             }
 
-
             return null; //CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
         }
 

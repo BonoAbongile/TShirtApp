@@ -14,7 +14,6 @@ namespace T_ShirtApp
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<TShirtItem>().Wait();
         }
-
         public Task<List<TShirtItem>> GetItemsAsync()
         {
             return database.Table<TShirtItem>().ToListAsync();
